@@ -39,11 +39,10 @@ def test_add_book_in_cart(browser):
         browser.find_element(By.CSS_SELECTOR, ".header-search__input").send_keys("оливер твист")
         browser.find_element(By.CSS_SELECTOR, ".header-search__button").click()  
     assert "результаты запроса" in browser.find_element(By.XPATH, '//*[@id="__layout"]/div/div[3]/div[1]/p').text
-    
 
 #добавить все книги в корзину и посчитать их количество
-def add_book_in_cart_and_count(browser):
-    with allure.step("Добавить все книги"): 
+def test_add_book_in_cart_and_count(browser):
+    with allure.step("добавить все книги"):
         buy_buttons = browser.find_elements(
     By.CSS_SELECTOR, "button action-button blue")
     with allure.step("считаем все книги"):
@@ -56,7 +55,7 @@ def add_book_in_cart_and_count(browser):
     with allure.step("выполняем переход в корзину"): 
         browser.get("https://www.chitai-gorod.ru/cart")
     txt = browser.find_element_by_class_name("badge-notice header-cart__badge").text
-    with allure.step("Проверить счетчик товаров"): 
+    with allure.step("проверить счетчик товаров"):
 #проверка счетчика товаров
         assert counter == int(txt)
 
