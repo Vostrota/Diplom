@@ -7,7 +7,7 @@ import pytest
 
 @pytest.fixture 
 def browser(): 
-    browser = webdriver.Chrome(service=Service(ChromeDriverManager().install())) 
+    browser = webdriver.Chrome() 
     browser.maximize_window() 
     browser.implicitly_wait(3)
     yield browser 
