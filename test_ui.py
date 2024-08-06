@@ -58,5 +58,3 @@ def test_add_book_in_cart_and_count(browser):
     with allure.step("проверить счетчик товаров"):
 #проверка счетчика товаров
         assert counter == int(txt)
-
-    browser.quit()
